@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container1 {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url(https://assets.nflxext.com/ffe/siteui/vlv3/42df4e1f-bef6-499e-87ff-c990584de314/2a16a013-2aee-4378-8551-990f4905cd1c/TR-tr-20230904-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        nav{
+        }
+
+        .email ::placeholder {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="w-100 container1 d-flex flex-column align-items-center">
+        <nav class="w-75 d-flex justify-content-between align-items-center" style="height: 86px;">
+            <img class="" src="Images/logo.png" style="height: 125%">
+            <div class="d-flex align-items-center gap-4">
+
+                <div
+                    class="nav-item dropdown border border-1 border-secondary rounded-1 d-flex align-items-center px-3 py-1">
+                    <a class="nav-link dropdown-toggle fs-6 d-flex align-items-center text-white" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="ms-2 me-1" style="height: 16px;" src="Images/world.png" alt="">
+                        Türkçe
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Türkçe</a></li>
+                        <li><a class="dropdown-item" href="#">English</a></li>
+                    </ul>
+                </div>
+
+                <a href="#" class="btn bg-danger rounded-1 rounded-0 text-light fw-bolder"
+                    style="font-size: 14px; font-family: sans-serif;">Oturum Aç</a>
+            </div>
+        </nav>
+
+        <div class="w-75 pb-4 d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
+            <p class="fw-bold text-white" style="font-size: 3rem;">Herkes burada!</p>
+            <p class="w-100 fw-semibold text-white" style="font-size: 1.5rem;">Favori oyuncunuz, en yakın arkadaşınız,
+                karşı komşunuz.
+                Tabii filmin, dizinin ve belgeselin âlâsı da.</p>
+            <p class="text-white w-100 px-5 fs-5 text-center">İzlemeye hazır mısınız? Üye olmak ya da hesabınıza tekrar
+                ulaşmak için tek yapmanız
+                gereken e-posta
+                adresinizi girmek.</p>
+            <form class="row g-2">
+                <div class="col-auto email">
+                    <input type="email" placeholder="E-posta adresi"
+                        class="form-control py-3 bg-transparent border border-white text-white">
+                </div>
+                <div class="col-auto">
+                    <a href="#" class="btn bg-danger rounded-1 rounded-0 fs-3 px-4 fw-medium text-white">Başlayın ></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+
+    <div class="bg-black">
+        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
+            <div class="w-50 d-flex flex-column justify-content-center">
+                <div class="d-flex flex-column align-items-end">
+                    <p class="fw-bold text-white w-75" style="font-size: 3rem;">Televizyonunuzda izleyin</p>
+                    <p class="fs-4 text-white w-75">Akıllı TV, PlayStation, Xbox, Chromecast, Apple TV,
+                        Blu-ray oynatıcılar ve daha fazlasında seyredin.</p>
+                </div>
+            </div>
+            <div class="w-50 d-flex justify-content-center align-items-center">
+                <img class="w-75 position-relative"
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png">
+                <div class="border border-1 position-absolute h-25 w-25">
+
+                </div>
+                <!--
+                    <video class="position-absolute top-0"
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                    type="video/mp4" autoplay muted loop></video>
+                -->
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+
+    <div class="bg-black">
+        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
+            <div class="w-50 d-flex justify-content-center align-items-center">
+                <img class="w-75"
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg">
+            </div>
+            <div class="w-50 d-flex flex-column justify-content-center">
+                <p class="fw-bold text-white w-75" style="font-size: 3rem;">Çevrimdışı izlemek için içerikleri indirin
+                </p>
+                <p class="fs-4 text-white w-75">En sevdiğiniz içerikleri kolayca kaydedin ve her zaman izleyecek bir
+                    şeyleriniz olsun.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+
+    <div class="bg-black">
+        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
+            <div class="w-50 d-flex flex-column justify-content-center">
+                <div class="d-flex flex-column align-items-end">
+                    <p class="fw-bold text-white w-75" style="font-size: 3rem;">İstediğiniz her yerde izleyin</p>
+                    <p class="fs-4 text-white w-75">Telefonda, tablette, bilgisayarda, televizyonda sınırsız film ve
+                        dizi
+                        izleyin.
+                    </p>
+                </div>
+
+            </div>
+            <div class="position-relative w-50">
+                <img alt="" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+                    data-uia="nmhp-card-animation-asset-image" class="default-ltr-cache-1d3w5wq">
+                <!--
+                    <video class="position-absolute top-0"
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                    type="video/mp4" autoplay muted loop></video>
+                -->
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+
+
+    <div class="bg-black">
+        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
+            <div class="d-flex justify-content-end align-items-center w-50">
+                <img class=""
+                    src="https://occ-0-7112-2773.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABf9FUgiWN4GTIJexNEV8ZW_SPzGYmxKo7TaBfIoriNNfn85AMMEcvM61PwQ-NhPzGXz2qu53lDDcCuf0rH9FWOYBpvhUc2dQxIAQ.png?r=533"
+                    style="width: 80%;">
+            </div>
+            <div class="d-flex flex-column justify-content-center w-50">
+                <p class="fw-bold text-white w-75" style="font-size: 3rem;">Çocuklarınız için profiller oluşturun</p>
+                <p class="fs-4 text-white w-75">Üyeliğinize dâhil olan bu ücretsiz deneyim sayesinde çocuklarınız,
+                    sadece
+                    onlara özel bir alanda en sevdikleri karakterlerle maceralara atılabilir.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+
+
+    <div class="bg-black d-flex flex-column align-items-center w-100">
+
+        <h1 class="text-white fs-1 fw-bold my-5">Sıkça Sorulan Sorular</h1>
+
+        <div class="accordion w-75" id="accordionExample">
+            <div class="accordion-item w-100 border-0 rounded-0 bg-dark">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light rounded-0 my-2 fs-4 py-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Netflix nedir?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark text-light fs-4 py-2">
+                        <p>Netflix; internet bağlantılı binlerce cihazda ödüllü diziler, filmler, animeler, belgeseller
+                            ve daha fazlasını içeren geniş bir arşiv sunan bir streaming hizmetidir.</p>
+                        <p>Tek bir reklam olmadan, istediğiniz kadar, istediğiniz zaman izleyebilirsiniz - hepsi aylık
+                            düşük bir ücret karşılığında. Her zaman keşfedilecek yeni bir şeyler var, üstelik her hafta
+                            yeni diziler ve filmler ekleniyor!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 rounded-0 bg-dark">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light rounded-0 my-2 fs-4 py-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo">
+                        Netflix'in maliyeti nedir?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark text-light fs-4 py-2">
+                        <p>Netflix'i akıllı telefonunuz, tabletiniz, Akıllı TV'niz, dizüstü bilgisayarınız veya yayın
+                            cihazınızda sabit bir aylık ücretle izleyin. Aylık plan ücretleri 63,99 TL ile 130,99 TL
+                            arasında değişmektedir. Ekstra maliyet yok, sözleşme yok.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 rounded-0 bg-dark">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light rounded-0 my-2 fs-4 py-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                        aria-controls="collapseThree">
+                        Nerede izleyebilirim?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark text-light fs-4 py-2">
+                        <p>İstediğiniz yerde, istediğiniz zaman izleyin. Bilgisayarınızda netflix.com adresinden veya
+                            akıllı TV'ler, akıllı telefonlar, tabletler, medya oynatıcılar ve oyun konsolları dahil
+                            Netflix uygulamasını sunan, internet bağlantılı herhangi bir cihazda anında izlemek için
+                            Netflix hesabınızla oturum açın.</p>
+                        <p>Favori içeriklerinizi iOS, Android veya Windows 10 uygulamasıyla da indirebilirsiniz.
+                            Seyahatteyken ve internet bağlantısı olmadan izlemek için indirilenleri kullanın. Netflix'i
+                            her yere beraberinizde götürün.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 rounded-0 bg-dark">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light rounded-0 my-2 fs-4 py-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                        aria-controls="collapseFour">
+                        Nasıl iptal ederim?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark text-light fs-4 py-2">
+                        <p>Netflix esnektir. Sinir bozucu hiçbir sözleşme ve taahhüt yoktur. Hesabınızı çevrimiçi
+                            olarak iki tıklamayla kolayca iptal edebilirsiniz. İptal ücreti yoktur - hesabınızı
+                            istediğiniz zaman başlatın veya durdurun. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 rounded-0 bg-dark">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light rounded-0 my-2 fs-4 py-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                        aria-controls="collapseFive">
+                        Netflix'te ne izleyebilirim?
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark text-light fs-4 py-2">
+                        <p>Netflix, uzun metrajlı filmler, belgeseller, diziler ve programlar, anime, ödüllü Netflix
+                            orijinal içerikleri ve daha fazlasından oluşan kapsamlı bir kütüphaneye sahiptir.
+                            İstediğiniz her zaman, istediğiniz kadar çok şey izleyin.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 rounded-0 bg-dark">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light rounded-0 my-2 fs-4 py-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                        aria-controls="collapseSiz">
+                        Netflix çocuklar için uygun mudur?
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body bg-dark text-light fs-4 py-2">
+                        <p>Üyeliğinize dâhil olan Netflix Çocuk deneyimi, çocukların ailece izlenebilecek dizi ve
+                            filmleri kendilerine özel bir alanda izlemelerini sağlarken kontrolü ebeveynlere verir.</p>
+                        <p>Çocuk profillerinde bulunan PIN korumalı ebeveyn kontrolleri sayesinde, çocukların
+                            izleyebileceği içeriklerin yetişkinlik düzeylerini kısıtlayabilir ve onların görmesini
+                            istemediğiniz belirli içerikleri engelleyebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <p class="fs-5 my-5 text-white w-75 px-5">İzlemeye hazır mısınız? Üye olmak ya da hesabınıza tekrar ulaşmak için
+            tek
+            yapmanız gereken e-posta adresinizi
+            girmek.</p>
+
+        <form class="row g-2 mb-5">
+            <div class="col-auto email">
+                <input type="email" placeholder="E-posta adresi"
+                    class="form-control py-3 bg-transparent border border-white text-white">
+            </div>
+            <div class="col-auto">
+                <a href="#" class="btn bg-danger rounded-1 rounded-0 fs-3 px-4 fw-medium text-white">Başlayın ></a>
+            </div>
+        </form>
+    </div>
+
+    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+
+    <div class="bg-black" style="height: 60vh;">
+        <div class="w-100 d-flex flex-column align-items-center">
+            <p class="mt-5 mb-4 text-white w-75">Sorularınız mı var? <span
+                    class="text-decoration-underline">0850-390-7444</span> numaralı telefonu arayın</p>
+            <div class="d-flex flex-column w-75">
+                <div class="d-flex justify-content-start gap-5" style="font-size: 14px;">
+                    <div>
+                        <ul class="list-unstyled" style="margin-right: 150px;">
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">SSS</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Medya Merkezi</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Hediye Kartı Kullan</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Gizlilik</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Bize Ulaşın</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Sadece Netflix'te</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-unstyled" style="margin-right: 150px;">
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Yardım Merkezi</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Yatırımcı İlişkileri</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">İzleme Yolları</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Çerez Tercihleri</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Hız Testi</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-unstyled" style="margin-right: 150px;">
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Hesap</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">İş İmkanları</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Kullanım Koşulları</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Kurumsal Bilgiler</a></li>
+                            <li class="list-unstyled py-1"><a class="text-white" href="#">Yasal Hükümler</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="w-100 d-flex flex-column align-items-center">
+
+            <div class="d-flex w-75 mt-4">
+                <div
+                    class="nav-item dropdown border border-1 border-secondary rounded-1 d-flex align-items-center px-3 py-1">
+                    <a class="nav-link dropdown-toggle fs-6 d-flex align-items-center justify-content-center text-white"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="ms-2 me-1" style="height: 16px;" src="Images/world.png" alt="">
+                        Türkçe
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Türkçe</a></li>
+                        <li><a class="dropdown-item" href="#">English</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="d-flex w-75 mt-3 text-light">
+                <p style="font-size: 14px;">Netflix Türkiye</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

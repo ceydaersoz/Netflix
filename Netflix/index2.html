@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*
+        .container1 {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url(https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABWlXOCa2lPy_t5eGsSrpbQKdQor27EZ4R7Tr0x1JY6S7e_DLOeSr0ATSWsmjm_Z6diwz8lTAYwdGkipn0Ou5mZorXLmi53VCQ_R7.webp?r=dfc);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        */
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            /* Diğer içeriklerin önünde olması için */
+        }
+
+        /* Video boyutlandırma */
+        video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+
+        .email ::placeholder {
+            color: white;
+        }
+
+        .container-navbar {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, .7) 10%, transparent);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="w-100 container1 d-flex flex-column align-items-center">
+
+        <nav class="container-navbar navbar navbar-expand-lg w-100" style="height: 10vh;">
+            <div class="container-fluid px-5">
+                <img class="pe-4" src="Images/logo.png" style="height: 60px;">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 14px;">
+                        <li class="nav-item px-1">
+                            <a class="nav-link active text-white" aria-current="page" href="#">Ana Sayfa</a>
+                        </li>
+
+                        <li class="nav-item px-1">
+                            <a class="nav-link active fw-light text-white" aria-current="page" href="#">Diziler</a>
+                        </li>
+
+                        <li class="nav-item px-1">
+                            <a class="nav-link active fw-light text-white" aria-current="page" href="#">Filmler</a>
+                        </li>
+                        <li class="nav-item px-1">
+                            <a class="nav-link active fw-light text-white" aria-current="page" href="#">Yeni ve
+                                Popüler</a>
+                        </li>
+
+                        <li class="nav-item px-1">
+                            <a class="nav-link active fw-light text-white" aria-current="page" href="#">Listem</a>
+                        </li>
+
+                        <li class="nav-item px-1">
+                            <a class="nav-link active fw-light text-white" aria-current="page" href="#">Dile Göre
+                                Gözat</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex gap-1">
+
+                        <a class="d-flex flex-column justify-content-center" href="#"><img class="" src="Images/search.png"></a>
+
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column justify-content-center" style="font-size: 14px;">
+                            <li class="nav-item px-1">
+                                <a class="nav-link active fw-light text-white" aria-current="page" href="#">Çocuk</a>
+                            </li>
+                        </ul>
+
+                        <a class="d-flex flex-column justify-content-center" href="#"><img class="" src="Images/bell.png"></a>
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229" alt="">
+                              
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-lg-end bg-black">
+                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Profil Yönetimi</button></li>
+                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Profil Aktar</button></li>
+                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Hesap</button></li>
+                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Yardım Merkezi</button></li>
+                                <li><hr class="dropdown-divider bg-secondary"></li>
+                                <li><a class="dropdown-item text-white" href="#" style="font-size: 12px;">Netflix oturumunu kapat</a></li>
+                              </ul>
+                          </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="video-background">
+            <video autoplay loop muted poster="vposter.jpg">
+                <source src="topboy.mp4" type="video/mp4">
+        </div>
+
+        <div class="d-flex flex-column justify-content-end mb-5" style="height: 70vh; width: 90%;">
+            <div class="w-25">
+                <p class="fw-bold text-white w-50" style="font-size: 90px; line-height: 4.5rem;">TOP BOY</p>
+                <p class="fs-4 fw-bold text-white">Dizilerde Bugün 9 Numara</p>
+                <p class="fs-6 text-white">İki eski toprak uyuşturucu satıcısı Londra'nın çetin
+                    sokaklarına geri döner. Ancak para ve güç arayışları, genç ve acımasız bir kabadayı yüzünden tehdit
+                    altına girer.</p>
+            </div>
+            <div class="d-flex gap-2">
+                <a href="#" class="btn bg-white rounded-1 rounded-0 text-dark fs-5 px-4"><img src="Images/play.png"
+                        style="width: 25px;" alt=""> Oynat</a>
+                <a href="#" class="btn bg-secondary opacity-50 rounded-1 rounded-0 text-white fs-5 px-4"><img src="Images/info.png" alt=""> Daha Fazla Bilgi</a>
+            </div>
+        </div>
+
+
+
+        <!-- 1 -->
+        <div class="m-2 fs-4 text-white" style="width: 90%;">
+            Yakın Zamanda Eklenenler
+        </div>
+        <div id="carouselExample1" class="carousel slide" style="width: 90%;">
+            <div class="carousel-inner d-flex">
+
+                <div class="carousel-item active d-flex px-6 rounded-1">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-2"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABT31c7akAqI_02E1lKSAG-5cdp2RHjWUntYPGfIgbuUeitV134hLZZee1twR8ny41DTZMnt8NLQ1HRzm5Es4nqgzfgHXZvUmK0RnQ3f5jJ8bXtkIYhCP7zz-q5RUQFFJJzlLPdw4tKsAles-IQs3gSZS5gLIbf2v4UtzGpvIsLkelWW9EPwz8gdiWizrBqw.jpg?r=89a"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZbQlfwVtmqMXFj8pJ4M2_e-2xCk9BhIu-kqmuxtX9TUi-JV4_2G1s63eY5WsjQEqU15JvKrF-HOzOu6_o7gGOEzNzqjZE5xujA.webp?r=024"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQc-VW52NgC000f1S_2kkPZJtsXF8fxyAkZydv5hmSPvsvm1O2btLxIPYncSjjPZSqVOYwES3MM57at5XFCrUBTGtLkwk_rJkAY.webp?r=35d"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABciG_UaCCf6OB5ExIszeBcJYPCj2gp6Lu1RImfXdP4BXjXl-BjlPXw3JoiOvYoMWrsb3n6BAXnvwvHuDINF9QVs3KBEOjbe6xL6xc7zNDLbcye7GIl_Yz6_RkGQYvva7rT78.jpg?r=ade"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQflf_rbCkBrz_3xjXdisP0eySOt26dfJJL0IZTD2-oDDq_HyTjlTtZykdUefyMsTc_4gjoPZQDTZ5kvmu6wn5N0HIPKPw7KmG4.webp?r=a9f"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaySINHpR_IaeSpdOBf85Fipg6_WgeAgChKg2pLOBF9AO5mH0UEvnuLV2lOMZthDQcXVJO0ZR-TGv56qjDeD14RExSYDav3tMFZP0MsVRykUjtyJ6YwiDdkz1V3Ar_B7Tl_EQw6TxnTpX6LuMvBZdEc7d_0XQIfID6XarTmpGjO5wffCg-cog1LJF9ZGRxQ.jpg?r=fca"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABc0OGVWIuUOIHyeIeGoUUQs-6nBI2enGBZRj_fMifrsTnaPzZjUaphpSZl0L-iVMJSLPP3HerPAefKkuKKwhOUd01r1HGQNi-Ak.webp?r=ba6"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABToojQnOld0NhN_vIvdhxUqQkLMYXXI-4ZvjyWHt4aOX3pUZbkIO7eA9aA3fU8WSaiFArQDK1slpdlRZj6Q9DI8STDz_Pe-p93i8gjRfDVT2DZ8zmtdvikegUoPHRLjy_nbCFHYoQYuqZZBFcKYPb_WY8oRl8eNjH0suBwbL40RAXKoYu5TKwajj7M00G9FyAy1m1MuTo2ctdc0gsIG-oCIcqnWl18zVBk-wbW6ZbV8dpmb3EhgxMMfNDNVWndX-Q8RQ0dK5k1GKoetS0Ftb-lwK-VDTrIX0M3qQCorfS4GG5KKCH0Pp5WBzNCOX6JLOsqJSJfBa8eRsUYPzyFj7aFTvZaCZeAUZgDfsL4m7HokjjQ0lt1zhL-epaC6cS9h9fqv5p8vlFUAxJf2FeBpAUDyKvqKoCB3jIC2g5SxZ0g1iw3riPJ0-hrH_20yAIiRzkkEmb0QslYoVuw.jpg?r=ba2"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABV6ibGjPb9UyAe1Mzuk6EE-w0RSAK2CuL-W-k_QLwhLypwM4UZKWwfIyTcFlLHmGa6-XxW2hZMZZiQkpMZRWFHPKv4gBWpXnqhw.webp?r=f33"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfPkgm6LA5dwK5xPz_4-JNazGy2b2NBCMMxGZzr5NXmUZqFxmc7oJacf_nhnGR27J_ColvpR4cU1h8Ilun4A9ixaswCayP9StfryomD9n8HSj3OU0CWiIqMxBllJCJMN7dIx.jpg?r=004"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVhe7bqA2qNVjkdHcpXvX0WWXXuTLQZPSdsw1DznUvOA1T46sqst0zSSQ8dclM9QxJ1LFFjND4aisWzjXCU6P2uGqdRkUPFaddtL5Qyj1TuDbkNdJqwY8_Jxaqq5mzA5Ywmj.jpg?r=19d"
+                        alt="">
+                    <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                        src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfuk1He_GVSgN5wi4p0Jic3PvbiyMOx9Zcd7DDGRp4VmoqD0p-GE8wpllM8ZSjNtAkJmfw9MFEJS0V3TbVJFRQd3QeZTw9ry0Gbxt_RovNTWvfTAV5wJliq2B9oaifb6AWJ8XZlXfcLpFnVsFgucexgydxtVe7642t4XF62MJdFAjw4G_Y0G16A8-RMTsYc.jpg?r=26e"
+                        alt="">
+
+                </div>
+                <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <div class="bg-black d-flex flex-column align-items-center">
+
+            <!-- 2 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Ceyda, İzlemeye Devam Et
+            </div>
+            <div id="carouselExample2" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfPMkkPYtK7ve4u4v78KCxjTM3L36eB66f4Nvo3LnJuLghI2uPB7vrGz_gyoUDZ-Xc1f92B0V7L30tMwLIxMAlJDawEJnnuOcaU.webp?r=1a8"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSP3kMicPu0lB05JWHdTB787aMwmqYp_86CS7yCuD3sKBZ4MzvEveX4cmzX4Xdzw32yam7S58O73qlCc6C9ybmYQrBIRPW-D-98.webp?r=04b"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSHxE02MdwK_cQxdYBgb0KzvjLlT7Qf2qSn32xOnT_zoFTzZIoSkfkOhbue10LCit7qlBdnP9dCUq7lpoTI8aqPi7fei3kEb8qg.webp?r=bf7"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6g…Opgb52P9G0KZ3_VUhUb7VqJ31Fx8_pIglYJzTc.webp?r=75b"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZRd2a6wFZpvG1blq8aYHH7ZQVt3DH6pNnirO57E19X8HvklJrCQT7OTVO5s5LmfxiSlijxXL-BA41W5DbNbAGyS529rMhSj3qE.webp?r=201"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaySINHpR_IaeSpdOBf85Fipg6_WgeAgChKg2pLOBF9AO5mH0UEvnuLV2lOMZthDQcXVJO0ZR-TGv56qjDeD14RExSYDav3tMFZP0MsVRykUjtyJ6YwiDdkz1V3Ar_B7Tl_EQw6TxnTpX6LuMvBZdEc7d_0XQIfID6XarTmpGjO5wffCg-cog1LJF9ZGRxQ.jpg?r=fca"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdIUMfZWugHUT_5uCubtMh43tjHM2hFWRBRGxZeWB0HM0OONC1TBF7SFtrHftQc5cL8S-DK8W1qRIcXkZPs-o0cNUV5ffdAMNTEQ3SHqA8sX1It41zuSTE7wXzBtdWaz4ZKr.jpg?r=c14"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdob7s3y72LsS9yGWm-Gs4kkHVKsPRkMgLu-IgHCAOg_tCvdPfcVJ7pqdYhY-W8-4wKAtyOM27tFEdCGu_9KYdxUbXZs4gc3KHI.webp?r=59d"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfPkgm6LA5dwK5xPz_4-JNazGy2b2NBCMMxGZzr5NXmUZqFxmc7oJacf_nhnGR27J_ColvpR4cU1h8Ilun4A9ixaswCayP9StfryomD9n8HSj3OU0CWiIqMxBllJCJMN7dIx.jpg?r=004"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdIUMfZWugHUT_5uCubtMh43tjHM2hFWRBRGxZeWB0HM0OONC1TBF7SFtrHftQc5cL8S-DK8W1qRIcXkZPs-o0cNUV5ffdAMNTEQ3SHqA8sX1It41zuSTE7wXzBtdWaz4ZKr.jpg?r=c14"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="src=https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdTJWVIupaTnPva5sS44cbYX3tI7DoeRdvMH6_SDgQzPZuQMPTku0qpKFcmUV4MqR-IpfSRbxXRnePn0gFwr8G6AXwT2P7POf4Dq-gSsvkrwjbWjGhNrdc2FgrpII5oFF31B.jpg?r=ec8"
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+
+
+            <!-- 3 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Gündemdekiler
+            </div>
+
+            <div id="carouselExample3" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfsNVc3K208BKHoV0ALjvSNu-KBzf31tVEBReLuli9pYSFBIJLpeL6aEEWTMa-AT33ck5a75BPjJ2lG1yJJh4wqvulIW_cPPjm4.webp?r=ab7"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcdDAZxybIW_0xXZkZygQNo_t1MdcZiVdiF-TEbai9AMaQ4a1xMTT3krRSC3cUeSSi5pLArz3xU8qppi2jOnPbOlZTvEGfSBas1qEwItQv32W3XE4eKiSOi58kAJFEqwUpAdIDxy8SfH0CY_kviTSV9b2eIxYbvrdPc7gqRCKN0oDAI_33bQ1f1iejRAB6Tzd0bW3Fe6tEEW8BvCzQqvMm0SNceUAeaY1_yeIAKu_fI5yyFXcUEN7vUw0usRMjfU6QEVqI4BL3MMXHaA5PtzzxRjOgJfLj4nySWabz8qvS5i380J7ns.jpg?r=ec1"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRZsSSGZYws7wtKnzf2KIi5dZvJK1da1FnmlJ-bTQUu3nOLW9EAKYzNdS5OweDubMDjV5roNuXbchW2MOtz_76xvrFL7GIEa1K6mY2qNGDKAkB2AuqV-sFpcTqbwUK6lN-sj.jpg?r=b2d"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUJjQNQytXdvRRM4urJ_sVngbCJPMDkoZFENZxl7YH0SZjhS6B0iNT7EbTnDQZx0VJDKkxwJWkOtElvxFbOVug9SW-pHDT4D-IzhpvY29j8VfgsQP2UqIiNzoCy5ZyVFEvALLw27S2HPTiDGO-XHT6Ofz4zI92g4wBehauT013VWeWswpcUUQ1Ad2wtfNylHeqffZ8d045J3RNCuig-IWrWX0QAcr4s33imn-ShbDMZLDp0xTzGx2IBaUZB9_3Epo38kcMA8Udgp77BICECXWpxnbhCuxyiGnCHX3A72PCnpbvaWTccGs7ugQGeSe4MaLT1A2u9fKrF2x1ZXpKpfVcg11JUGi_DbIRVfGQ-UDAJzCQ.jpg?r=19c"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRNyqsBbhHwMhJ9YasAYDrRfRLs7-4KYZUHv5A8KPmN8OfsF8rYIg0qtVtgaUVazB-uFBsmwbYkuMjicZ6FxbRClLd1-MEkrMbF4A0UQG2EvOxEexA2AmOKFWX5xCOH-IGXoC-UlgtoQkXgkg3VdpM5n8C7RODwNG1n9q38RoJhKfuy-cn3SW7MewWWJBzSb65KJi2UdNnJf5rkF1tZDx0ZDpxkaFClRy8eiW5K0GHk6eHvKX4rvUN48ufLO29rugj1IJ7VXCnY3BCBfukW4FH7aP3a-UVuaKsemKukAO1KoZxDZ1wmxYw.jpg?r=889"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXmyB-9IGoD2Nqjf_fupk6LjGopB2ffJSGdjcF9zzSYFvIZTO4HJBAcHNcajel3Uk8GA4DBd4vRgXvBjt7s6IEh5jzZ7JzjcdPT5NQLumwtu3QZMFlC_benDKLHazLyX387g.jpg?r=ab4"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWfCYTlwl0x_4MxI4EQwu7mBDu0D6RHioU63E3NjbvKEAejN2LsqyHVKJfoUz9Os49yCrwKlcrryb46VIGenYvJEesC7YROLuuJfZhatWWEubVjlHm35hMf3KQpa_Hd5WzjOCUC1fr_ZwkSaU3zWMNBPeHHltip3bezl-yA9rKOBd5xGpMIrzPU2Ry49aNr6_xbJ330-_fv3OvGkjTyF-0_p02bJQoSYHrPcgvVMQPenIw45tmXsJ0NK1PhylQ86thLGxovRkB6CEP7Yhl_f78dyD1mq7LHEZ2lrCSGOi-0N5da9dSe63aRQr5hk__Pf0BJ4NU0c41vM4qejgrpfB7F-qk2jpYHe2mKOdhNqFBvrWhe0.jpg?r=26e"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVAFQrqYIdep8X2YVHH51r3EOp9G8-EdcZHhN_Z7ftFgnXUEs6CMyO-GnEBKKlSXSlkogqPuJWycQtfIarjXHAQmOKgQYGmxPKY.webp?r=c02"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZYrc5pdAgK6sOnFP0x3kLWU1BLUawwc2-3Hk7U6_0oO45Bvl8huzdSDm-dwPkg43Yim8VJPpNQsJ2IHbueYi25i4HGDwvOCAIc.webp?r=39d"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfj-MZdGCLIOkB1OrtyaJLzx8N5xk2GjPL_aRfminOyHVNRhj4J56DznpVW0b-ouVzmMQzFYn8E-DtepEDbfe8JVYSveiY4RdnA.webp?r=a8a"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWGt0nA08S1zfgf3OdWP6sxLJsQql1Y1szGzLaw76Jma5kJhyNBy2HU8Wpko25ZIdic9UVR8X4WdnDFFDeyukRd78xqOsZhJr5dfr9Lgz85WOTYFDwxpTXFqtfB3jc5c5GOi35qJ_9iIh4H1mP6GveUxtvzYklrsEbLN5ckOrJKYFhsJlZ5YIFcNkbrSM-EqGnP8fzcg2NmAey4EQm1zjkfYSIHA0f3ovRrg1dV3l1a_vqfBoUx4vdDoHhf-6Smqcr69v7YmZNVPyiS5FcHHS4GNEGcWoWHWafRlw9iJEk3A06SdRbeF9jbgpw.jpg?r=790"
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+            <!-- 4 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Gerçek Suç Belgeselleri
+            </div>
+            <div id="carouselExample4" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTyfwt1UQ8vztTVNUN1hzHR9Fu9o_zTCO5bumksm1y5M2iPFc0R8NzdbVVJVMUERoil__OSAeCFOXK-xEeSkj0bZVm8xNBaCPuz8-qrTgeTRIxxx6bF6jG-5eiFP1UC539lB.jpg?r=d4d"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWQAt-EQw9U9s0C3F3wkEyVRLi1R-i5sdx-K2Ei-IMkxUA4Od3tWd-Yd5ni6rMd8hHlPwqODiQ0l64v4Ht_TdWSZ6vcgBRIkWy6eh0Fi9ZdJjbpoW8Mm_vIQDu3GdRWNXZ_B.jpg?r=1fc"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXxDhOFMnJ4nJyaIqRKMCkaJ5uK63DLC4kACLg-2XOporEe5ORQDlMLHe3wd3mx54b0CYONsXBgznMyp4n95Wwqr8raah1DNAFfNSatf2hduGWpliWpaouD7wYSenF50fqyr.jpg?r=c65"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQq4zWLay_iTNAvLDvdiL26bCpID-yLu74WJqR08rzhHy1S27uX6xeYfuGGPEA4Z7f_TjbzFLZvj0vZvGYYzTkKPcMIEKbX9makZvRoZYGs_3_DRudTbOxn4aI5dq-SpLZA7.jpg?r=183"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABe9t8gyR5B_Z6CGHbLQpRj85SMAWgNAk0Nvv5EUrzd-nKqBWTLw-ggCpiwzMpdjDSfjWzgrXbObXRB1r0MpowHndXVnEywfFv5WkAVQSEZ25-CpQSKVcpWYsp3Vhr9Lj0RVF.jpg?r=47f"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbr97EjtcWt_7biLrK7jEa7WHTHpBzBAAjs6ruqhlq8G8V5dfY7FX2pRfULpOlLSIj9SqQpi8ZhNMHYPRj5P3WnjKdzrv5RReqKRPrMecUHFlqeQUpWQHeoikstn4P4wSKtX.jpg?r=e38"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABawTVpG3FTAGsmsT1Cc7BwpQRJpsWYfD1iScJjUx0iH185JEZSrtCPQNg4iYh6FPHvsmSz3fT4rMGUc3UCIwzCl1cZ8COlyT3ZajY-Gb8A1d_R2JW7cvogB7dMAYlfN1OX5k.jpg?r=a36"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaTWNlTAr5YtNt7B989mHpq_3ApsQTpPi9xDv8FXWHxTqBk8l9kEi8HkLyXXh1rOw7Lt4BjHflreSdRctF2XNAinDs9y03j3t1N3hFUVuJr8YOzpccj6XqOpApaevQ9BXTJt.jpg?r=a32"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdOGxa8okeyohL26gXeg3khwqp59ScdQn2-R8-FIAmff0-mJZJ_sMsoMQO4c_mg-XWMZGOmO_k6hUGPJCga0DuLvCV---X8MhqW9lWw5QrZCB2hwW-UCpgFPsuNybEa7EPx2.jpg?r=b7f"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfKP3Hfc_TP8Tat6RUW6Lf1hcGsf1MQtxWNdtUYbXgs89iA_RjsGZ7jnLEXlP4hJpQ2fVeese5Ha09UYSPuVH8UdPKI5F8r_sd8W79UiuGB1P_MTXJ02jqTnUfGNKR3QWbFi.jpg?r=6a9"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABd619qS_d5DP8krZT5c8tz2YRaeWGa1p5aJ60nsufHQw2lTY7uiu2dMWqgvpC2zXbZEKQP0OnGPXdbPQi6859YsDTM5AxCnxZqsdezCWPu6rjtFVlRPbVXsdfqOxfuhCQX_Q.jpg?r=168"
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample4"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample4"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+            <!-- 5 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Amerikan Yapımı Diziler
+            </div>
+            <div id="carouselExample5" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdIUMfZWugHUT_5uCubtMh43tjHM2hFWRBRGxZeWB0HM0OONC1TBF7SFtrHftQc5cL8S-DK8W1qRIcXkZPs-o0cNUV5ffdAMNTEQ3SHqA8sX1It41zuSTE7wXzBtdWaz4ZKr.jpg?r=c14"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRTmx6_oBstOFBCux6U3_loA9FYbjOkq3r2E_uFLGJXOoSN16SG9oL1YnNkFK-UzarBnI6T0kv8edHCgpoxeneyPNhR1coILE4zbUpEzV46D3rAaqKimZMbkSmSEdkwOO3cr.jpg?r=156"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdTJWVIupaTnPva5sS44cbYX3tI7DoeRdvMH6_SDgQzPZuQMPTku0qpKFcmUV4MqR-IpfSRbxXRnePn0gFwr8G6AXwT2P7POf4Dq-gSsvkrwjbWjGhNrdc2FgrpII5oFF31B.jpg?r=ec8"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABROGiG1yqprUmexlXSh8bJJ0Fed3mTwCy7YOQYYUc23YD5ewi32rLoon1sAqwiFOjjqGFIaSQ10gBIWwrJSVT0saw0Gxv1SYq0gztsBuLcAKZ5Y83idMhdVZWToxX4MLt6Ju.jpg?r=183"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABX7m7L8XU6MyAr-tVd8qRdGBWvc7_EhJjVkIkFAeS09D_vdZiZC_qM39vYQztysScaICZXFpacNS-FToVRT6iTYK5_IrmauC4PQ.webp?r=33d"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABV2m6GQhfEPNKBF8XzGNk7tUeYwrePpMJ_2qSP9op57ZAGiAqq8fo5AnsA7F_qaR7myaww85d9JhpqMRlHTP87oNpPE8PltY71EozycxxvBEcgE12GmRq8mzOs4tAI2LLnHN.jpg?r=aeb"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdOGxa8okeyohL26gXeg3khwqp59ScdQn2-R8-FIAmff0-mJZJ_sMsoMQO4c_mg-XWMZGOmO_k6hUGPJCga0DuLvCV---X8MhqW9lWw5QrZCB2hwW-UCpgFPsuNybEa7EPx2.jpg?r=b7f"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1" src=""
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1" src=""
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1" src=""
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1" src=""
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample5"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample5"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+
+            <!-- 6 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Eleştirmenlerden Tam Not Alan Belgeseller
+            </div>
+
+            <div id="carouselExample6" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZSyagYzDb73RL_vMFSVhSHjTd7U2ZV_qApE-PQV0ear8So-9jEP2736kgOfTqRfzfVNfcgKYu55bkHjRObQztkHPbauHQg6iXyT-PyG0fCsCMST5YCHbF4m96Qv4Z_4mwr7.jpg?r=801"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeQE16RTH-cfNjehNIVeP5cH1RZJj1XxglJa-uQom2UeZuunM0tvbsDK3kdhOeNvXRT_a_C6p4WIcSj679VODZw33Ay61SKJ_Z4.webp?r=733"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQJDY32KWoWqKz1HvPaQNrmnMQXN0MFx26jVavZGE4DsVuk9kxxw5atuNoKzLeb_Rh09CLxPhYUdd-Vibl-mXbn9jDKyz6vCm5Mp44blmdCMGOwQyyzNIlFmd6Y2yZEfHIJb.jpg?r=2c0"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYU_3UU8eXpdqdU8-pwIZdH3t0t4LjfqPUdBB-Ojmym8TitFwRS2vQAVQTlROzw39Mj9YTQEuAsm02zVq7tmRBhUpg66LcItYeGRPllABIxXcPZlwHoD8ajViQF3OF4ThMES.jpg?r=fb3"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABb0Z5awOVnSG3XSaN9HyuBKtJOwzjPNhPrHnWy3wjtVxS4Oc7pxOoeBHiRyvkA69ujU40HoDtqYnlK9vE6feg4qPTkfGSUWEXX-7k-Cz12LnqP4qZVFYgzRzV5qUUdgWPjyS.jpg?r=367"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWBoTSWcNKDPaIFo5LerSyux06d_1yLTYqKHo5C4JnsVn5xuGM23qWR8ff3l4WLxbSZdi7gTCA3CmYnUSodKenYX8Jzdz9ITViy57oiJ7BghesDjwz4qyXo4EMQnG0K5lfhH.jpg?r=039"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYAqyxY8q1V1fRRlR3AvGp6YHdASFGglVeHl-GJLf5dMvwBog4efJF0nPre5ca1TBrDEWmqoGKybdrUm_hk9Yz0z8UYBwtoiQ6y47yhzLx9WuFM7Z6h2ncxTwGQGTvx085Px.jpg?r=daa"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABReAFu0Hv-fjeSpmo6sygask1X6Rll3vwEzW6cdnvFcYCsr753qfQugpt6SDjFNrbLy7GblmZaYnQ49bO4Y0zsfTgb3VJnfwt4iSbpBubJ2IkfOGU318DI0n-EAgM1y7-_ss.jpg?r=444"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1" src=""
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1" src=""
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1" src=""
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample6"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample6"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+            <!-- 7 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Ceyda İçin En İyi Seçimler
+            </div>
+
+
+            <div id="carouselExample7" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABai6F5zci5lB24AtwFXH7twB2TT_qEwAZrWGy4oAXBNZQbM4Q9ZllGN14WrcJAhQ1lMCniKOpBPJZUUI9ZxZK5pEKA703faKM9o5feTZwAwat8T84uLSOQE1OXdhBIsRSLZU.jpg?r=c15"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcPJV4x31ZM4oADGCufn3PbG-F54wkp2mIA-cEUkVYezdg6msx6m5hkZJ_wqCCWFsINyl5g9-rzhlYtyNfXBPWIyI_48t-gYPd4s-7DM6vPEpM5wtmupCoN3Xl47X4-fvaFH.jpg?r=8dd"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR1hdaNZllvcEPKawSUlRlWofK3QqHIjuE8ZS1hho3OsGJPVAyG5pbRcoJ5lKJ9qOKVl_hrKZOP24RZyag2ojzKabz9FwXC65Hv3ZyoxTcBqTvQryycj8vKgn3uMrXIW5RYp.jpg?r=345"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTVanlGDgISChAhkSR0JBM4LvvDUW_kcWnTyL8Mb8CpViOmQijHlrBBTrVTgoZlEbjZ9niVHo15HZpWXh3o4W2a72ZaGfzUrM1p6q_g1ihjfHLttiO0tbWb7JiwKXDrXlGdw.jpg?r=9d4"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaNGzWlM0s6b-Rbi6FLkEhPgeg4ZOpDvJ89A0r4CjcXKYGxtJ-uZEhRSXhQWVM_7pOuvSHrJx5qu7foMuW2bavBj5I2Xuqt5sN_Oy3axXCNSDY2eEtG-YhJKuTjX9Et4npJO.jpg?r=845"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeh8T-lqOx1NhiY639X8dzmYS0mbeqEc2IT4Szxqtx3AP0xDcc2hWPFIeUdoLhflCDDjeqVtLXWH8qwTDfyyHbcQddrxYksztW-kjAfQ6kdbP1c8iO4yGJxQNqneziY2TKVO.jpg?r=399"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWnkluNYgMo6DGGbgTp19-drSfIBPbzy84ueQpOU4riQYzK9u30fmy4T0NEsXKl8Ec88S39L1qF-VRjrWfTNlifM-1kzIdjfI8Pg-oaEKBGNdDtLxcqywCLftl93DM76aP1S.jpg?r=fd8"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVMxJdR8D89nlp3JWd4-BGeGCeaMNn5dR1B2a6z9cvRLnE-NGmbysRn45xontrUZGSzpDHX3-YosBzonH1D7zlLTnmFeZI2xwU-YOqcOoIWBGgqTFzrv_20AsaleMs7ZY44b.jpg?r=72b"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUhq6JgupQc69fUdNrG18A441NY6ySP66VPY00-cmAyCaHQJLcYlqN_TyJZTCth8UwePqAOA2P_U3oCpHIhFhD5oQl5PL0n0Kn3YMNRhMYiAAyQAOtHX8Ashaxrabxc7lY_n.jpg?r=813"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABadE4CbcIiySOa9roydW4snZnsG1k3QI4i6mVH52S9ezFIn8nk7LcE_VE9I2JDa0RTk6PaASnrvS6TcM2aAX0fRpG_kfbyxgzWyRMjWD7OVUT6UD5Aw8U3yF0NLaPczqxCva.jpg?r=b9c"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYSx_sDk39if1JFYNwh0MDdxwlh56ojrHF6NURA08RQTWlWCPnXbb7RJhPdm95ln9BY58xkA-FEIq9CVuXm6emej35RWfg07SGE.webp?r=fa4"
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample7"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample7"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+            <!-- 8 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Listem
+            </div>
+
+            <div id="carouselExample8" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVYazo8F4SmQ6rDOJSsL29axX_fjGjtgtMVe55ubHLxe3he1P5JMTMRSdhV3dt_tXZyQtccmmuCSRJPYk8ZHQorBXcD7PMNYzB1oLnfXuTrl31fEGG4T0S0K6fAVHpWqHayNgi-K0VRtZ8ER-WD5-IYkOoSwxIrkmmuRaxICSm4I-2cs8Ysy8jMNICdfNOo.jpg?r=b74"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWGt0nA08S1zfgf3OdWP6sxLJsQql1Y1szGzLaw76Jma5kJhyNBy2HU8Wpko25ZIdic9UVR8X4WdnDFFDeyukRd78xqOsZhJr5dfr9Lgz85WOTYFDwxpTXFqtfB3jc5c5GOi35qJ_9iIh4H1mP6GveUxtvzYklrsEbLN5ckOrJKYFhsJlZ5YIFcNkbrSM-EqGnP8fzcg2NmAey4EQm1zjkfYSIHA0f3ovRrg1dV3l1a_vqfBoUx4vdDoHhf-6Smqcr69v7YmZNVPyiS5FcHHS4GNEGcWoWHWafRlw9iJEk3A06SdRbeF9jbgpw.jpg?r=790"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZ01BvD_purq_OWawbEb3hp8WZvUE1CbAIRke9iJ1vvFaLPbPn8MniG-53JjURt7cjmBm40CQ8M0ftaPIbmtBXFk3aejWLNCAvrioWaCU3TeqdyM7CX33mmaOn1WO8lHt0DWLkibwc37iQkvk8MvHPMQN-WWYNpPXKmoq-vOzbZtSE40yT0MgNvYY-HWw8dtsRJH7ROv1IMqg5RbPDTLAQx2iyl4NZPZYIswDSTq8l2OepIW7fD0c89vr4SvVeDm7hHRJXlNKbX57PsBUI6RMkEqivexDC9X1DOD8pk5wYYMnCl_vRrPdQ.jpg?r=89f"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABb-ypeSSiZBFUUs0xaE2zMSjIDYqxDyL4fTZpypVnH1KZaqx1IH0uluHjAj4i6eAcc4CpZQ5XxeqHkrdwXnuHEPcjv-mc7j5fiBNbFqf36nD-gLNEfvK-zo6zSkdrEnPK2_p.jpg?r=640"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR3iNE-Qebf40vfD189HaCgrkOrb6_n7ve3Pg9Riws3v8LCNluPxN4hY3Cpbdr0VwV385Q9mlhtZ8VXGpqvmgOJ5g66eP8gmmSCGoYOIXOPYOsTay55UY_dzJekRRbAQL3U1.jpg?r=7f7"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABS1f-isKXA0GoB5bW-nQf5p4qtjCiYVK1oHGtOhYu0iJ6_dNCzUsb-porp5dAF_kmmbrHTB2PDmhAZcv7MKHswa2oApRzM2NA7kM1HA8CW2IE8j2CAIT2vo8jhllZzTZkaxE.jpg?r=f40"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABduvScqoCQX6JdcofjGnloW1OJg-RNoh3_1T3tYW6pHNy9MnLqMSrbH_RHL7h2G02WLUkXj5gZXc9W3bsyEWaiLablDxAh6YJHY-JF6qxiHFODAGhSCEt8Jqi1YZJf8l5E0R.jpg?r=390"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcy3sqmrzGmAuIkbW_1xuW3KSe4p3OfUxEnufTWEayLH929tGQXv2gHN5VhmMfuTPL-9z3VupgZp9Q2ZwxxC1oFe1XCacHJ_MTA.webp?r=007"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABW-dUx94vQ5QrQ-j7cK42bBc733_XQtVVd1toUK-nZTkAGTzNnP3Jp_CngX0w_91WOCFgyIH0Sgvw3NhJ0XdCz8qS5s40bzOi6A7erwcWZvLM_PGx-xpfoCqixg7HAT0_2ps.jpg?r=622"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQFsYj3Z2kJOD7oQWpNKZs6f2YskQgDv9UqjiBKtPzYSY66hFR8qGFjGEHqMkf0ltygah-wajxm8sTIco_mCdbmNoeaCpq2sP0P9hkkt8BQODtaSn_-q6Hv0gAQVa94sG3gd.jpg?r=70a"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVr8gElCuS2fYFEppnfR5yBVTn_wO4rjN_SuBo6AkoRwpTgRM4N8tg1Xp_UWhSjIJa0fiiwSHoBZcoHXT1htmC3KW17ggLNou5O6fQwzmu9xPce77W5zUpsA9Du7ZiYCKX38.jpg?r=cf4"
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample8"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample8"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+            <!-- 9 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                İngiltere Yapımı Dramalar
+            </div>
+
+            <div id="carouselExample9" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdEXcLuzVDsloBL8fjH2aO-Yj6viRhD4ChpbGUH1_8VGLj9yShmjFkuvRlQlNkBtJGfPIflqi_SYmuFKXL8Dx2lyKaL0xdskDGY.webp?r=3fa"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYjEjkdcL_Us9rLPuPUP86T4o5KDseQvzQ1szuXT9pJUQKNxPDCBepT68AVBfs93DJbcYyFHFCFiDa0_b2nOvTGnEeKS2bres8A27uqiL4jsWWZSsp3OyyF-NimMfQK_1EnG.jpg?r=f94"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVMxJdR8D89nlp3JWd4-BGeGCeaMNn5dR1B2a6z9cvRLnE-NGmbysRn45xontrUZGSzpDHX3-YosBzonH1D7zlLTnmFeZI2xwU-YOqcOoIWBGgqTFzrv_20AsaleMs7ZY44b.jpg?r=72b"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRiGozvQUFRCODw785zhCBrA5MAcJKeNF7MwDrCKQIKbCRiv5l-wjzqqUF57eRfkud0G1VcXcIZ0ecm61Zp7J1oC1wDMt5YvfdDQHRRkZqDtKx-pYBtrlKXnVSKjv2MG2akK.jpg?r=095"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbfAoYiUKH1s7-mTAEQ43QP6MlMxxkhcr_Ap26HAJ6kTn-RHzpxYiU39iSkfLWGYO_0RfRHaW_VRJ2Ks9xd1yFnJyxsWZ0pWf1oOl8Az5LLa0zgyI84e0QJgoW57pPvfh9Br.jpg?r=db8"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABU_hBa9pw7tdIT3OuOJNMln-qMRgNNU4MF1VJHwOOwSGL23zrXXgJ5TtgJBbet_sW0dVlbq8f9HpkBJgzH3mYSfnEVtdKEoiIxD2ox7Jw96_E1kGotm-Q_US_tC1820mHTyv.jpg?r=eda"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdFYuAzPeFpOzVVMRwoZOAk1qWDhF-DUt_lg9s-ZQTmn_Cw2mbgED2KdgQRVop--dF3vEBAYQKZaC2VrCtNJrA5xA6XboF4JrVwnxG93WbifR9-00-C_21G_PLy7BbmlvyP5.jpg?r=146"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABadE4CbcIiySOa9roydW4snZnsG1k3QI4i6mVH52S9ezFIn8nk7LcE_VE9I2JDa0RTk6PaASnrvS6TcM2aAX0fRpG_kfbyxgzWyRMjWD7OVUT6UD5Aw8U3yF0NLaPczqxCva.jpg?r=b9c"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXJrwGmobM0tSyNkTv6Ag5btc4qhbdVH6bhUC85I4Gr2areRBJWb7oFfS7PIo5XjUtOi3DrY1Lijt3IlRzKDECJdrKf73IwyOCwT13AtAjRbTfsHEtk_SFVMLP8tP8I0sSBS.jpg?r=e66"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbNLtzh5-D4Tv_6aQdDnOEEtyII1Cmwvn47gLkSdPmZOX4cdRaUdftd7m0O0dWjUgV0gyLzAnxtO6O5xtBFh-BiYL03VTveGFvN-ThhmS67Ek7ZWq8UE9k88D9Ub6T9GzkgS.jpg?r=777"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR259ODKQePyilP9qusJV2KEJhgxdMSNZtpEswj2lpDJyF-RArIojTItCkNFGmZc91bd2sDAJ5djt7ScNCf1IuFJoSYKwyCNv7GvmphGKdVFbTd2KB8wIFZXJc4DeL0D_b57.jpg?r=792"
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample9"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample9"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+            <!-- 10 -->
+            <div class="m-2 fs-4 text-white" style="width: 90%;">
+                Romantik Komedi Filmleri
+            </div>
+
+            <div id="carouselExample10" class="carousel slide" style="width: 90%;">
+                <div class="carousel-inner d-flex">
+
+                    <div class="carousel-item active d-flex px-6 rounded-1">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRMrXwQxBzua_E5xIfOaOpsZQnL89Z1yR9iFdM6EPPml4qknCcnFUHIS_Dr91GHkTuyP2Z2m6wuiYQxMWKr-oLITU9zLOPNLf8Y.webp?r=550"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSoLAimTDpL41i1wz4FdDv_ABX-1E24d2NKGAWXpeFRT68K5WyF6CIw6m2pbsC2HDg5i3zpmcajVWjuQlEGI9X7jcEgTkZw6sWk.webp?r=384"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcUKVtrL80t5kId03d-lVowDsDAkKarwfDLNZ41zxF4GHH10LsvoFGgeyL1trkfK2tqLnkEkATPVLB850afcu6JCFjcPSC_sgao.webp?r=6fd"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRQjZw-clYnElvdvi2IcL_00dGQo9mZW_nbLwizwOL76NsWuwfr8i6lqvpRgzfzj-Ol2UHA0q77SroaWzBc2mLcBi_7_jP2FNZw.webp?r=9c2"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeUTU6O5tp8JhatT6JdZNAREWIDxXUb1fMzAwTzxb4D5SytIUmC5wwGZGbpiytruxgidB9Zgq7w9JKxroBj1AS65B63bYwraZcs.webp?r=369"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQUPD2Zvo9XakVTKxlO0jzvnFoPJ_k3atK6t2RDCRiM2GWyOaRgFMA3lbKahk9wjWd7u72n4BeZfzxVrjd8VKwVxoKinEaO-MYM.webp?r=860"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSbQe5m5n596guhQ4rYPWnIs0B-HrVLa6hw5HhkGyG2VmOJbMnMID3U6AlAq0P-OzgtR_Aa1HBZNaY0L7Bw-vJHPU5DcW83ukJs.webp?r=531"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeSR29Nzbqq3-EzJ6y-vaBu1FRUDc0NA7Y8KTcq1E_2q5ZZPL4F_8PpFPIad_4wa-F5Dh7jnTE5aQf7U6dBgQ4lv5AhM9lYLEJE.webp?r=53c"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQUGjApLSelhgJrXPfnki_eQmcgiREQQYRDixDwOnFkLtZyzVcY_N2ZCA-IjF2_6HtpV6dW34Hiq_JHgWkVawGQgEpjsJoYLCcs.webp?r=d08"
+                            alt="">
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABd4b4DWg4mbghpT4dgSCTxYmN0Qva9O94VPpQJfBtmHmxP0cZkfamLBAYNT1TKZaPl0TG_7cSKUJqCCI14EkAmIUBbm76aqZdgkhpeFFgQiBqWon3cwtz17-yLfmfA0ZWQuL.jpg?r=cd3"
+                            alt="">
+
+                        <img class="boxart-image boxart-image-in-padded-container h-75 w-100 px-1 rounded-1"
+                            src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVouWS72ycSFQNFe3MQi7sLl4aI44qRWkU6SeTMCAOPWS27qiBk3usSV28XydzcvF-n8rk_NNfas5OZTtwnM9EB2a4CBbOfL1UE.webp?r=cc4"
+                            alt="">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample10"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample10"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="bg-black" style="height: 50vh;">
+
+        <div class="w-100 d-flex flex-column align-items-center pt-5 pb-1">
+
+            <div class="d-flex gap-4 w-75">
+                <img src="Images/facebook.png" style="height: 30px;" alt="">
+                <img src="Images/instagram.png" style="height: 30px;" alt="">
+                <img src="Images/twitter.png" style="height: 30px;" alt="">
+                <img src="Images/youtube.png" style="height: 30px;" alt="">
+            </div>
+        </div>
+
+
+        <div class="w-100 d-flex flex-column align-items-center">
+            <div class="d-flex flex-column w-75">
+                <div class="d-flex justify-content-start gap-1" style="font-size: 14px;">
+                    <div>
+                        <ul class="list-unstyled" style="margin-right: 150px;">
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">Sesli
+                                    Betimleme</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
+                                    href="#">Yatırımcı İlişkileri</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">Yasal
+                                    Hükümler</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-unstyled" style="margin-right: 150px;">
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
+                                    href="#">Yardım
+                                    Merkezi</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">İş
+                                    İmkanları</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">Çerez
+                                    Tercihleri</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-unstyled" style="margin-right: 150px;">
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
+                                    href="#">Hediye
+                                    Kartları</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
+                                    href="#">Kullanım
+                                    Koşulları</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
+                                    href="#">Kurumsal
+                                    Bilgiler</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-unstyled" style="margin-right: 150px;">
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">Medya
+                                    Merkezi</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
+                                    href="#">Gizlilik</a></li>
+                            <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">Bize
+                                    Ulaşın</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-75 d-flex flex-column pt-5 pb-1">
+                <div class="border border-1 border-secondary px-2 text-center" style="width: 110px;">
+                    <a class="text-decoration-none text-secondary" style="font-size: 14px;" href="#">Hizmet Kodu</a>
+                </div>
+                <p class="mt-3" style="font-size: 12px;">© 1997-2023 Netflix, Inc.</p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
