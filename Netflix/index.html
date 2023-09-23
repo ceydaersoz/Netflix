@@ -24,11 +24,24 @@
             background-position: center;
         }
 
-        nav{
-        }
+        nav {}
 
         .email ::placeholder {
             color: white;
+        }
+
+        @media screen and (max-width:992px) {
+            .text {
+                scale: 0.7;
+            }
+
+        }
+
+        @media screen and (max-width:768px) {
+            .logo {
+                scale: 0.7;
+            }
+
         }
     </style>
 
@@ -38,8 +51,8 @@
 
     <div class="w-100 container1 d-flex flex-column align-items-center">
         <nav class="w-75 d-flex justify-content-between align-items-center" style="height: 86px;">
-            <img class="" src="Images/logo.png" style="height: 125%">
-            <div class="d-flex align-items-center gap-4">
+            <img class="logo" src="Images/logo.png" style="height: 125%">
+            <div class="d-md-flex d-block align-items-center gap-4">
 
                 <div
                     class="nav-item dropdown border border-1 border-secondary rounded-1 d-flex align-items-center px-3 py-1">
@@ -55,23 +68,24 @@
                 </div>
 
                 <a href="#" class="btn bg-danger rounded-1 rounded-0 text-light fw-bolder"
-                    style="font-size: 14px; font-family: sans-serif;">Oturum Aç</a>
+                    style="font-size: 13px; font-family: sans-serif;">Oturum Aç</a>
             </div>
         </nav>
 
         <div class="w-75 pb-4 d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
-            <p class="fw-bold text-white" style="font-size: 3rem;">Herkes burada!</p>
-            <p class="w-100 fw-semibold text-white" style="font-size: 1.5rem;">Favori oyuncunuz, en yakın arkadaşınız,
+            <p class="fw-bold text-white text-center" style="font-size: 3rem;">Herkes burada!</p>
+            <p class="w-100 fw-semibold text-white text-center" style="font-size: 1.5rem;">Favori oyuncunuz, en yakın
+                arkadaşınız,
                 karşı komşunuz.
                 Tabii filmin, dizinin ve belgeselin âlâsı da.</p>
             <p class="text-white w-100 px-5 fs-5 text-center">İzlemeye hazır mısınız? Üye olmak ya da hesabınıza tekrar
                 ulaşmak için tek yapmanız
                 gereken e-posta
                 adresinizi girmek.</p>
-            <form class="row g-2">
+            <form class="row g-2 d-block d-md-flex align-items-center">
                 <div class="col-auto email">
                     <input type="email" placeholder="E-posta adresi"
-                        class="form-control py-3 bg-transparent border border-white text-white">
+                        class="form-control py-3 bg-transparent border border-white text-white" style="width: 300px;">
                 </div>
                 <div class="col-auto">
                     <a href="#" class="btn bg-danger rounded-1 rounded-0 fs-3 px-4 fw-medium text-white">Başlayın ></a>
@@ -80,97 +94,119 @@
         </div>
     </div>
 
-    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+    <div class="bg-secondary w-100" style="height: 1.2vh;"></div>
+
+
+
+
 
     <div class="bg-black">
-        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
-            <div class="w-50 d-flex flex-column justify-content-center">
-                <div class="d-flex flex-column align-items-end">
-                    <p class="fw-bold text-white w-75" style="font-size: 3rem;">Televizyonunuzda izleyin</p>
-                    <p class="fs-4 text-white w-75">Akıllı TV, PlayStation, Xbox, Chromecast, Apple TV,
+        <div class="d-flex flex-column flex-lg-row justify-content-center w-100" style="min-height: 70vh;">
+            <div
+                class="w-50 d-flex flex-column justify-content-center align-items-center order-1 order-lg-1 mx-sm-auto text-sm-center text-lg-start w-auto">
+                <div class="w-75 d-flex flex-column">
+                    <p class="text fw-bold text-white w-100 text-center text-lg-start"
+                        style="font-size: 3rem;">Televizyonunuzda izleyin</p>
+                    <p class="text fs-4 text-white w-100 text-center text-lg-start">Akıllı TV,
+                        PlayStation, Xbox, Chromecast, Apple TV,
                         Blu-ray oynatıcılar ve daha fazlasında seyredin.</p>
                 </div>
             </div>
-            <div class="w-50 d-flex justify-content-center align-items-center">
-                <img class="w-75 position-relative"
+            <div
+                class="w-75 d-flex justify-content-center justify-content-lg-start align-items-center order-2 order-lg-2 mx-auto">
+                <img class="w-75 position-relative object-fit-cover"
                     src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png">
-                <div class="border border-1 position-absolute h-25 w-25">
 
-                </div>
-                <!--
-                    <video class="position-absolute top-0"
-                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
-                    type="video/mp4" autoplay muted loop></video>
-                -->
             </div>
+
         </div>
     </div>
+    </div>
+    </div>
 
-    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+    <div class="bg-secondary w-100" style="height: 1.2vh;"></div>
 
     <div class="bg-black">
-        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
-            <div class="w-50 d-flex justify-content-center align-items-center">
-                <img class="w-75"
+        <div class="d-flex flex-column flex-lg-row justify-content-center w-100" style="min-height: 70vh;">
+            <div
+                class="w-50 d-flex justify-content-center align-items-center order-2 order-lg-1 mx-auto">
+                <img class="w-100 position-relative object-fit-cover"
                     src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg">
             </div>
-            <div class="w-50 d-flex flex-column justify-content-center">
-                <p class="fw-bold text-white w-75" style="font-size: 3rem;">Çevrimdışı izlemek için içerikleri indirin
-                </p>
-                <p class="fs-4 text-white w-75">En sevdiğiniz içerikleri kolayca kaydedin ve her zaman izleyecek bir
-                    şeyleriniz olsun.
-                </p>
+
+            <div
+                class="w-50 d-flex flex-column justify-content-center align-items-center align-items-lg-start order-1 order-lg-2 mx-sm-auto text-sm-center text-lg-start w-auto">
+                <div class="w-75 d-flex flex-column">
+                    <p class="text fw-bold text-white w-100 text-center text-lg-start"
+                        style="font-size: 3rem;">Çevrimdışı
+                        izlemek için içerikleri indirin
+                    </p>
+                    <p class="text fs-4 text-white w-100 text-center text-lg-start">En sevdiğiniz
+                        içerikleri kolayca kaydedin
+                        ve her zaman izleyecek bir
+                        şeyleriniz olsun.
+                    </p>
+                </div>
             </div>
+
         </div>
     </div>
 
-    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+    <div class="bg-secondary w-100" style="height: 1.2vh;"></div>
 
     <div class="bg-black">
-        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
-            <div class="w-50 d-flex flex-column justify-content-center">
-                <div class="d-flex flex-column align-items-end">
-                    <p class="fw-bold text-white w-75" style="font-size: 3rem;">İstediğiniz her yerde izleyin</p>
-                    <p class="fs-4 text-white w-75">Telefonda, tablette, bilgisayarda, televizyonda sınırsız film ve
+        <div class="d-flex flex-column flex-lg-row justify-content-center w-100" style="min-height: 70vh;">
+            <div
+                class="w-50 d-flex flex-column justify-content-center align-items-center order-1 order-lg-1 mx-sm-auto text-sm-center text-lg-start w-auto">
+                <div class="w-75 d-flex flex-column">
+                    <p class="text fw-bold text-white w-100 text-center text-lg-start"
+                        style="font-size: 3rem;">İstediğiniz her yerde izleyin</p>
+                    <p class="text fs-4 text-white w-100 text-center text-lg-start">Telefonda, tablette,
+                        bilgisayarda, televizyonda sınırsız film ve
                         dizi
                         izleyin.
                     </p>
                 </div>
 
             </div>
-            <div class="position-relative w-50">
-                <img alt="" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
-                    data-uia="nmhp-card-animation-asset-image" class="default-ltr-cache-1d3w5wq">
-                <!--
-                    <video class="position-absolute top-0"
-                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
-                    type="video/mp4" autoplay muted loop></video>
-                -->
+            <div
+                class="w-50 d-flex justify-content-center justify-content-lg-start align-items-center order-2 order-lg-2 mx-auto">
+
+                <img alt=""
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png"
+                    data-uia="nmhp-card-animation-asset-image"
+                    class="default-ltr-cache-1d3w5wq w-75 position-relative object-fit-cover">
             </div>
         </div>
     </div>
 
-    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+    <div class="bg-secondary w-100" style="height: 1.2vh;"></div>
 
 
     <div class="bg-black">
-        <div class="d-flex justify-content-center w-100" style="height: 70vh;">
-            <div class="d-flex justify-content-end align-items-center w-50">
-                <img class=""
+        <div class="d-flex flex-column flex-lg-row justify-content-center w-100" style="min-height: 70vh;">
+            <div class="w-100 d-flex justify-content-center justify-content-lg-end align-items-center order-2 order-lg-1 mx-auto">
+                <img class="w-75 position-relative object-fit-cover"
                     src="https://occ-0-7112-2773.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABf9FUgiWN4GTIJexNEV8ZW_SPzGYmxKo7TaBfIoriNNfn85AMMEcvM61PwQ-NhPzGXz2qu53lDDcCuf0rH9FWOYBpvhUc2dQxIAQ.png?r=533"
                     style="width: 80%;">
             </div>
-            <div class="d-flex flex-column justify-content-center w-50">
-                <p class="fw-bold text-white w-75" style="font-size: 3rem;">Çocuklarınız için profiller oluşturun</p>
-                <p class="fs-4 text-white w-75">Üyeliğinize dâhil olan bu ücretsiz deneyim sayesinde çocuklarınız,
-                    sadece
-                    onlara özel bir alanda en sevdikleri karakterlerle maceralara atılabilir.
-                </p>
+            <div
+                class="w-50 d-flex flex-column justify-content-center align-items-center align-items-lg-start order-1 order-lg-2 mx-sm-auto text-sm-center text-lg-start w-auto">
+                <div class="w-75 d-flex flex-column">
+                    <p class="text fw-bold text-white w-100 text-center text-lg-start"
+                        style="font-size: 3rem;">Çocuklarınız için profiller oluşturun</p>
+                    <p class="text fs-4 text-white w-100 text-center text-lg-start">Üyeliğinize dâhil
+                        olan bu ücretsiz deneyim sayesinde çocuklarınız,
+                        sadece
+                        onlara özel bir alanda en sevdikleri karakterlerle maceralara atılabilir.
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+    <div class="bg-secondary w-100" style="height: 1.2vh;"></div>
 
 
     <div class="bg-black d-flex flex-column align-items-center w-100">
@@ -295,10 +331,10 @@
             yapmanız gereken e-posta adresinizi
             girmek.</p>
 
-        <form class="row g-2 mb-5">
+        <form class="row g-2 mb-5 d-block d-md-flex align-items-center">
             <div class="col-auto email">
                 <input type="email" placeholder="E-posta adresi"
-                    class="form-control py-3 bg-transparent border border-white text-white">
+                    class="form-control py-3 bg-transparent border border-white text-white" style="width: 300px;">
             </div>
             <div class="col-auto">
                 <a href="#" class="btn bg-danger rounded-1 rounded-0 fs-3 px-4 fw-medium text-white">Başlayın ></a>
@@ -306,16 +342,19 @@
         </form>
     </div>
 
-    <div class="bg-secondary w-100" style="height: 1.5vh;"></div>
+    <div class="bg-secondary w-100" style="height: 1.2vh;"></div>
 
-    <div class="bg-black" style="height: 60vh;">
+    <div class="bg-black" style="min-height: 60vh;">
         <div class="w-100 d-flex flex-column align-items-center">
             <p class="mt-5 mb-4 text-white w-75">Sorularınız mı var? <span
                     class="text-decoration-underline">0850-390-7444</span> numaralı telefonu arayın</p>
+
+
+
             <div class="d-flex flex-column w-75">
-                <div class="d-flex justify-content-start gap-5" style="font-size: 14px;">
+                <div class="d-flex justify-content-start gap-2 gap-md-5" style="font-size: 14px;">
                     <div>
-                        <ul class="list-unstyled" style="margin-right: 150px;">
+                        <ul class="list-unstyled">
                             <li class="list-unstyled py-1"><a class="text-white" href="#">SSS</a></li>
                             <li class="list-unstyled py-1"><a class="text-white" href="#">Medya Merkezi</a></li>
                             <li class="list-unstyled py-1"><a class="text-white" href="#">Hediye Kartı Kullan</a></li>
@@ -325,7 +364,7 @@
                         </ul>
                     </div>
                     <div>
-                        <ul class="list-unstyled" style="margin-right: 150px;">
+                        <ul class="list-unstyled">
                             <li class="list-unstyled py-1"><a class="text-white" href="#">Yardım Merkezi</a></li>
                             <li class="list-unstyled py-1"><a class="text-white" href="#">Yatırımcı İlişkileri</a></li>
                             <li class="list-unstyled py-1"><a class="text-white" href="#">İzleme Yolları</a></li>
@@ -334,7 +373,7 @@
                         </ul>
                     </div>
                     <div>
-                        <ul class="list-unstyled" style="margin-right: 150px;">
+                        <ul class="list-unstyled">
                             <li class="list-unstyled py-1"><a class="text-white" href="#">Hesap</a></li>
                             <li class="list-unstyled py-1"><a class="text-white" href="#">İş İmkanları</a></li>
                             <li class="list-unstyled py-1"><a class="text-white" href="#">Kullanım Koşulları</a></li>
