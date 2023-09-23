@@ -16,15 +16,10 @@
             padding: 0;
         }
 
-        /*
-        .container1 {
-            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url(https://occ-0-7112-3466.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABWlXOCa2lPy_t5eGsSrpbQKdQor27EZ4R7Tr0x1JY6S7e_DLOeSr0ATSWsmjm_Z6diwz8lTAYwdGkipn0Ou5mZorXLmi53VCQ_R7.webp?r=dfc);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
+
+        body {
+            overflow-x: hidden;
         }
-        */
 
         .video-background {
             position: fixed;
@@ -34,11 +29,12 @@
             height: 100%;
             overflow: hidden;
             z-index: -1;
+
             /* Diğer içeriklerin önünde olması için */
         }
 
         /* Video boyutlandırma */
-        video {
+        .video-background video {
             min-width: 100%;
             min-height: 100%;
             width: auto;
@@ -47,6 +43,7 @@
             top: 50%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
         }
 
 
@@ -63,19 +60,33 @@
 
 <body>
 
-    <div class="w-100 container1 d-flex flex-column align-items-center">
+    <div class="w-100 d-flex flex-column align-items-center">
 
         <nav class="container-navbar navbar navbar-expand-lg w-100" style="height: 10vh;">
+
+
             <div class="container-fluid px-5">
                 <img class="pe-4" src="Images/logo.png" style="height: 60px;">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <div class="btn-group d-lg-none m-auto">
+                    <button class="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Göz at
+                    </button>
+                    <ul class="dropdown-menu bg-black rounded-0" style="width: 30vh; height: 35vh;">
+                      <li><a class="dropdown-item text-white text-center py-2" href="#">Anasayfa</a></li>
+                      <li><a class="dropdown-item text-white text-center py-2" href="#">Diziler</a></li>
+                      <li><a class="dropdown-item text-white text-center py-2" href="#">Filmler</a></li>
+                      <li><a class="dropdown-item text-white text-center py-2" href="#">Yeni ve Popüler</a></li>
+                      <li><a class="dropdown-item text-white text-center py-2" href="#">Listem</a></li>
+                      <li><a class="dropdown-item text-white text-center py-2" href="#">Dile Göre Göz At</a></li>
+
+                    </ul>
+                  </div>
+
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 14px;">
-                        <li class="nav-item px-1">
+                        <li class="nav-item px-1 w-auto">
                             <a class="nav-link active text-white" aria-current="page" href="#">Ana Sayfa</a>
                         </li>
 
@@ -97,38 +108,51 @@
 
                         <li class="nav-item px-1">
                             <a class="nav-link active fw-light text-white" aria-current="page" href="#">Dile Göre
-                                Gözat</a>
+                                Göz At</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="d-flex gap-1">
+
+                    <a class="d-flex flex-column justify-content-center" href="#"><img class=""
+                            src="Images/search.png"></a>
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column justify-content-center"
+                        style="font-size: 14px;">
+                        <li class="nav-item px-1">
+                            <a class="nav-link active fw-light text-white" aria-current="page" href="#">Çocuk</a>
                         </li>
                     </ul>
 
-                    <div class="d-flex gap-1">
+                    <a class="d-flex flex-column justify-content-center" href="#"><img class=""
+                            src="Images/bell.png"></a>
 
-                        <a class="d-flex flex-column justify-content-center" href="#"><img class="" src="Images/search.png"></a>
-
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column justify-content-center" style="font-size: 14px;">
-                            <li class="nav-item px-1">
-                                <a class="nav-link active fw-light text-white" aria-current="page" href="#">Çocuk</a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle bg-transparent border-0" data-bs-toggle="dropdown"
+                            data-bs-display="static" aria-expanded="false"><img
+                                src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229"
+                                alt="">
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end bg-black w-auto">
+                            <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Profil
+                                    Yönetimi</button></li>
+                            <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Profil
+                                    Aktar</button></li>
+                            <li><button class="dropdown-item text-white" type="button"
+                                    style="font-size: 12px;">Hesap</button></li>
+                            <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Yardım
+                                    Merkezi</button></li>
+                            <li>
+                                <hr class="dropdown-divider bg-secondary">
                             </li>
+                            <li><a class="dropdown-item text-white" href="#" style="font-size: 12px;">Netflix oturumunu
+                                    kapat</a></li>
                         </ul>
-
-                        <a class="d-flex flex-column justify-content-center" href="#"><img class="" src="Images/bell.png"></a>
-
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img src="https://occ-0-7327-1432.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229" alt="">
-                              
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-lg-end bg-black">
-                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Profil Yönetimi</button></li>
-                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Profil Aktar</button></li>
-                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Hesap</button></li>
-                                <li><button class="dropdown-item text-white" type="button" style="font-size: 12px;">Yardım Merkezi</button></li>
-                                <li><hr class="dropdown-divider bg-secondary"></li>
-                                <li><a class="dropdown-item text-white" href="#" style="font-size: 12px;">Netflix oturumunu kapat</a></li>
-                              </ul>
-                          </div>
                     </div>
-
                 </div>
+
             </div>
         </nav>
 
@@ -141,16 +165,18 @@
             <div class="w-25">
                 <p class="fw-bold text-white w-50" style="font-size: 90px; line-height: 4.5rem;">TOP BOY</p>
                 <p class="fs-4 fw-bold text-white">Dizilerde Bugün 9 Numara</p>
-                <p class="fs-6 text-white">İki eski toprak uyuşturucu satıcısı Londra'nın çetin
+                <p class="fs-6 text-white d-none d-md-flex">İki eski toprak uyuşturucu satıcısı Londra'nın çetin
                     sokaklarına geri döner. Ancak para ve güç arayışları, genç ve acımasız bir kabadayı yüzünden tehdit
                     altına girer.</p>
             </div>
             <div class="d-flex gap-2">
                 <a href="#" class="btn bg-white rounded-1 rounded-0 text-dark fs-5 px-4"><img src="Images/play.png"
                         style="width: 25px;" alt=""> Oynat</a>
-                <a href="#" class="btn bg-secondary opacity-50 rounded-1 rounded-0 text-white fs-5 px-4"><img src="Images/info.png" alt=""> Daha Fazla Bilgi</a>
+                <a href="#" class="btn bg-secondary opacity-50 rounded-1 rounded-0 text-white fs-5 px-4"><img
+                        src="Images/info.png" alt=""> Daha Fazla Bilgi</a>
             </div>
         </div>
+
 
 
 
@@ -836,7 +862,7 @@
 
 
 
-    <div class="bg-black" style="height: 50vh;">
+    <div class="bg-black" style="height: 60vh; min-width: auto;">
 
         <div class="w-100 d-flex flex-column align-items-center pt-5 pb-1">
 
@@ -851,9 +877,9 @@
 
         <div class="w-100 d-flex flex-column align-items-center">
             <div class="d-flex flex-column w-75">
-                <div class="d-flex justify-content-start gap-1" style="font-size: 14px;">
+                <div class="d-flex justify-content-start gap-2 gap-md-5" style="font-size: 14px;">
                     <div>
-                        <ul class="list-unstyled" style="margin-right: 150px;">
+                        <ul class="list-unstyled">
                             <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">Sesli
                                     Betimleme</a></li>
                             <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
@@ -863,7 +889,7 @@
                         </ul>
                     </div>
                     <div>
-                        <ul class="list-unstyled" style="margin-right: 150px;">
+                        <ul class="list-unstyled">
                             <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
                                     href="#">Yardım
                                     Merkezi</a></li>
@@ -874,7 +900,7 @@
                         </ul>
                     </div>
                     <div>
-                        <ul class="list-unstyled" style="margin-right: 150px;">
+                        <ul class="list-unstyled">
                             <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
                                     href="#">Hediye
                                     Kartları</a></li>
@@ -887,7 +913,7 @@
                         </ul>
                     </div>
                     <div>
-                        <ul class="list-unstyled" style="margin-right: 150px;">
+                        <ul class="list-unstyled">
                             <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none" href="#">Medya
                                     Merkezi</a></li>
                             <li class="list-unstyled py-2"><a class="text-secondary text-decoration-none"
